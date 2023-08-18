@@ -33,8 +33,7 @@ const list = [
   },
 ];
 
-function App() {
-  return (
+const App = () => (
     <div>
       <h1>My Hacker Stories</h1>
 
@@ -44,24 +43,21 @@ function App() {
 
       <List />
 
+      <List />
+
     </div>
   );
-}
 
-function Search() {
-  return (
+const Search = () => (
     <div>
       <label htmlFor="search">Search: </label>
       <input id="search" type="text"></input>
     </div>
-  )
-}
+  );
 
-function List() {
-  return (
+const List = () => (
     <ul>
-    {list.map(function (item) {
-      return (
+      {list.map((item) => (
         <li key={item.objectID}>
           <span>
             <a href={item.url}><i>{item.title}</i></a>
@@ -73,10 +69,8 @@ function List() {
           </ul>
           
         </li>
-      );
-    })}
+      ))}
   </ul>
-  )
-}
+  );
 
 export default App
