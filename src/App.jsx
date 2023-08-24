@@ -1,19 +1,12 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-// import * as React from 'react';
+import * as React from 'react';
 import './App.css';
 
-// const welcome = {
-//   title: 'React',
-//   greeting: 'Hey',
-// };
-
-// function getTitle(title) {
-//   return title;
-// }
 
 const App = () => {
+  console.log('App renders');
   const stories = [
     {
       title: 'React',
@@ -49,17 +42,20 @@ const App = () => {
 
 
 const Search = () => {
-  const handleChange = (event) => {
-    // synthetic event
-    console.log(event);
-    // value of target (here: input HTML element)
-    console.log(event.target.value);
-  };
+  let [searchTerm, setSearchTerm] = React.useState('initial state');
 
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+  
   return (
     <div>
       <label htmlFor="search">Search: </label>
       <input id="search" type="text" onChange={handleChange}></input>
+
+      <p>
+        Searcing for <strong> {searchTerm} </strong>
+      </p>
     </div>
   );
 }
@@ -71,6 +67,7 @@ const List = (props) => (
     ))}
   </ul>
 );
+
 
 const Item = (props) => (
   <li>
